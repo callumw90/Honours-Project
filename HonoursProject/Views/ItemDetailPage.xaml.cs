@@ -28,8 +28,8 @@ namespace HonoursProject.Views
 
             var item = new Item
             {
-                CocktailName = "Item 1",
-                Preparation = "This is an item description."
+                name = "Item 1",
+                preparation = "This is an item description."
             };
 
             viewModel = new ItemDetailViewModel(item);

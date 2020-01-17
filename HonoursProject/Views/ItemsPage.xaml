@@ -10,7 +10,7 @@
             </d:ListView.ItemsSource>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                     <ImageCell Text="{Binding CocktailName}" ImageSource="{Binding ImageUri}" Height="50"/>
+                     <ImageCell Text="{Binding name}" ImageSource="{Binding imageUri}" Height="50"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

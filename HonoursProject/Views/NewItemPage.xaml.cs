@@ -21,8 +21,8 @@ namespace HonoursProject.Views
 
             Item = new Item
             {
-                CocktailName = "Item name",
-                Preparation = "This is an item description."
+                name = "Item name",
+                preparation = "This is an item description."
             };
 
             BindingContext = this;

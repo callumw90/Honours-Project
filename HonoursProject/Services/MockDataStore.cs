@@ -18,11 +18,7 @@ namespace HonoursProject.Services
 
             items = new List<Item>()
                 {
-                    new Item { Id = Guid.NewGuid().ToString(), CocktailName = "Flaming Homer", Preparation="This is an item description.", ImageUri="https://upload.wikimedia.org/wikipedia/commons/e/e7/Flaming_cocktails.jpg"},
-                    new Item { Id = Guid.NewGuid().ToString(), CocktailName = "Manhattan", Preparation="This is an item description.", ImageUri="https://commons.wikimedia.org/wiki/File:Flaming_cocktails.jpg" },
-                    new Item { Id = Guid.NewGuid().ToString(), CocktailName = "Martini", Preparation="This is an item description.", ImageUri="https://commons.wikimedia.org/wiki/File:Flaming_cocktails.jpg"},
-                    new Item { Id = Guid.NewGuid().ToString(), CocktailName = "G&T", Preparation="This is an item description.", ImageUri="https://commons.wikimedia.org/wiki/File:Flaming_cocktails.jpg" },
-                    new Item { Id = Guid.NewGuid().ToString(), CocktailName = "Old Fashioned", Preparation="This is an item description.", ImageUri="https://commons.wikimedia.org/wiki/File:Flaming_cocktails.jpg" },
+                    new Item { id = Guid.NewGuid().ToString(), glass = "Martini", garnish = "Orange Peel", ingredients = new Ingredient{ unit }, name = "Flaming Homer", preparation = "This is an item description.", imageUri = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Flaming_cocktails.jpg"}
                 };
             //Analytics.TrackEvent("List Loaded");
         }
@@ -36,7 +32,7 @@ namespace HonoursProject.Services
 
         public async Task<bool> UpdateItemAsync(Item item)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            var oldItem = items.Where((Item arg) => arg.id == item.id).FirstOrDefault();
             items.Remove(oldItem);
             items.Add(item);
 
@@ -45,7 +41,7 @@ namespace HonoursProject.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+            var oldItem = items.Where((Item arg) => arg.id == id).FirstOrDefault();
             items.Remove(oldItem);
 
             return await Task.FromResult(true);
@@ -53,7 +49,7 @@ namespace HonoursProject.Services
 
         public async Task<Item> GetItemAsync(string id)
         {
-            return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+            return await Task.FromResult(items.FirstOrDefault(s => s.id == id));
         }
 
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)

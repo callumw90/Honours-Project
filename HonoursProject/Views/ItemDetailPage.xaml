@@ -1,10 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="HonoursProject.Views.ItemDetailPage" Title="{Binding Title}">
+    <ScrollView>
     <StackLayout Spacing="20" Padding="15">
-        <Image Source="{Binding Item.ImageUri}" />
+        <Image Source="{Binding Item.imageUri}" ScaleX="0.66" ScaleY="0.66"/>
         <Label Text="Cocktail Name:" FontSize="Medium" />
-        <Label Text="{Binding Item.CocktailName}" d:Text="Cocktail Name" FontSize="Small" />
+        <Label Text="{Binding Item.name}" d:Text="Cocktail Name" FontSize="Small" />
+        <Label Text="Glassware:" FontSize="Medium" />
+        <Label Text="{Binding Item.glass}" d:Text="Glass Type" FontSize="Small" />
+        <Label Text="Garnish:" FontSize="Medium" />
+        <Label Text="{Binding Item.garnish}" d:Text="Garnish" FontSize="Small" />
+        <Label Text="Ingredients:" FontSize="Medium" />
+        <Label Text="{Binding Item.ingredients}" FontSize="Small" />
         <Label Text="Preparation:" FontSize="Medium" />
-        <Label Text="{Binding Item.Preparation}" d:Text="Preparation Instructions" FontSize="Small" />
+        <Label Text="{Binding Item.preparation}" d:Text="Preparation Instructions" FontSize="Small" />
     </StackLayout>
+        </ScrollView>
 </ContentPage>
