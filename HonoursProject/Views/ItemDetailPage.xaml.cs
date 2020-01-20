@@ -8,8 +8,7 @@ using HonoursProject.ViewModels;
 
 namespace HonoursProject.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
+
     [DesignTimeVisible(false)]
     public partial class ItemDetailPage : ContentPage
     {
@@ -26,10 +25,10 @@ namespace HonoursProject.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new Cocktails
             {
-                name = "Item 1",
-                preparation = "This is an item description."
+                Name = "Item 1",
+                Preparation = "This is an item description."
             };
 
             viewModel = new ItemDetailViewModel(item);

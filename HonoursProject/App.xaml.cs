@@ -2,7 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using HonoursProject.Services;
-using HonoursProject.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -10,20 +9,17 @@ using Microsoft.AppCenter.Push;
 using System.Threading;
 using System.Diagnostics;
 using Microsoft.AppCenter.Data;
+using HonoursProject.Views;
 
 namespace HonoursProject
 {
     public partial class App : Application
-    {
-
-        
-
+    {  
         public App()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage (new MainPage());
         }
 
         protected override void OnStart()

@@ -1,56 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using HonoursProject.Services;
+using HonoursProject.ViewModels;
 using HonoursProject.Models;
+using HonoursProject.Views;
+
 
 namespace HonoursProject.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
+
     [DesignTimeVisible(false)]
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage : ContentPage
     {
 
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        ListViewModel viewModel;
+
         public MainPage()
         {
             InitializeComponent();
 
-            MasterBehavior = MasterBehavior.Popover;
-
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            BindingContext = viewModel = new ListViewModel();
         }
 
-        public async Task NavigateFromMenu(int id)
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            if (!MenuPages.ContainsKey(id))
+            var item = args.SelectedItem as Cocktails; // get selected item
+
+            if (item == null)
+                return;
+
+            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+
+
+            CocktailListView.SelectedItem = null;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if(viewModel.Items.Count == 0)
             {
-                switch (id)
-                {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
-                }
-            }
-
-            var newPage = MenuPages[id];
-
-            if (newPage != null && Detail != newPage)
-            {
-                Detail = newPage;
-
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
-
-                IsPresented = false;
+                viewModel.LoadItemsCommand.Execute(null);
             }
         }
+
+        protected void UsageDataClicked(object sender, EventArgs args)
+        {
+
+            var totalMem = GCCollectClass.GetMemUsage();
+
+            totalMem /= 1024;
+
+            //totalMem.ToString();
+
+            DisplayAlert("Total Memory in Use","Memory: " + totalMem + " MB","OK");
+        }
+
     }
 }

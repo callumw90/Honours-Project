@@ -6,30 +6,25 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 using HonoursProject.Models;
+using HonoursProject.Services;
 using HonoursProject.Views;
 
 namespace HonoursProject.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ListViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Cocktails> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public ItemsViewModel()
+        public ListViewModel()
         {
             Title = "Cocktail List";
-            Items = new ObservableCollection<Item>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            Items = new ObservableCollection<Cocktails>();
+            LoadItemsCommand = new Command(async () => ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
-            {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
-            });
         }
 
-        async Task ExecuteLoadItemsCommand()
+        private async void ExecuteLoadItemsCommand()
         {
             if (IsBusy)
                 return;
@@ -39,8 +34,9 @@ namespace HonoursProject.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                var items = GetData.Deserialize();
+
+                foreach (Cocktails item in items)
                 {
                     Items.Add(item);
                 }

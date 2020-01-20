@@ -1,18 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:views="clr-namespace:HonoursProject.Views" x:Class="HonoursProject.Views.MainPage">
-    <MasterDetailPage.Master>
-        <views:MenuPage />
-    </MasterDetailPage.Master>
-    <MasterDetailPage.Detail>
-        <NavigationPage>
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_feed.png" />
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:ItemsPage />
-            </x:Arguments>
-        </NavigationPage>
-    </MasterDetailPage.Detail>
-</MasterDetailPage>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="HonoursProject.Views.MainPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Get Usage Data" Clicked="UsageDataClicked" Order="Primary" />
+    </ContentPage.ToolbarItems>
+    <StackLayout Margin="20,35,25,20">
+        <ListView x:Name="CocktailListView" BackgroundColor="Transparent" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                     <ImageCell Text="{Binding Name}" ImageSource="http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/96/32437-cocktail-glass-icon.png" Height="50"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

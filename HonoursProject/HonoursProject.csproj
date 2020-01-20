@@ -17,5 +17,22 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Push" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Data" Version="2.6.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Services\GetJSON.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Cocktails.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cocktails.json" />
   </ItemGroup>
 </Project>
