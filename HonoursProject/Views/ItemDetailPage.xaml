@@ -10,7 +10,7 @@
         <Label Text="Garnish:" FontSize="Medium" />
         <Label Text="{Binding Cocktail.Garnish}" d:Text="Garnish" FontSize="Small" />
         <Label Text="Ingredients:" FontSize="Medium" />
-        <ListView ItemsSource="{Binding Cocktail.Ingredients}" BackgroundColor="Transparent" HasUnevenRows="True">
+        <ListView IsEnabled="False" ItemsSource="{Binding Cocktail.Ingredients}" BackgroundColor="Transparent" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

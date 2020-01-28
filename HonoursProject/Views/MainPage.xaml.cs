@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.AppCenter.Analytics;
 
 using HonoursProject.Services;
 using HonoursProject.ViewModels;
@@ -63,6 +64,7 @@ namespace HonoursProject.Views
             //totalMem.ToString();
 
             DisplayAlert("Total Memory in Use","Memory: " + totalMem + " MB","OK");
+            Analytics.TrackEvent("Memory Usage: ");
         }
 
     }
