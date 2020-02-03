@@ -1,40 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="HonoursProject.Views.ItemDetailPage" Title="{Binding Title}">
-    <ScrollView>
-    <StackLayout Spacing="20" Padding="15">
-        <Image Source="http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/128/32437-cocktail-glass-icon.png"/>
-        <Label Text="Cocktail Name:" FontSize="Medium" />
-        <Label Text="{Binding Cocktail.Name}" d:Text="Cocktail Name" FontSize="Small" />
-        <Label Text="Glassware:" FontSize="Medium" />
-        <Label Text="{Binding Cocktail.Glass}" d:Text="Glass Type" FontSize="Small" />
-        <Label Text="Garnish:" FontSize="Medium" />
-        <Label Text="{Binding Cocktail.Garnish}" d:Text="Garnish" FontSize="Small" />
-        <Label Text="Ingredients:" FontSize="Medium" />
-        <ListView IsEnabled="False" ItemsSource="{Binding Cocktail.Ingredients}" BackgroundColor="Transparent" HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="50" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Amount}" />
-                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding Unit}"/>
-                            <Label Grid.Row="1" Grid.Column="3" Text="{Binding IngredientName}"/>
-                            <Label Grid.Row="1" Grid.Column="4" Text="{Binding Label}"/>
-                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding Special}"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Label Text="Preparation:" FontSize="Medium" />
-        <Label Text="{Binding Cocktail.Preparation}" d:Text="Preparation Instructions" FontSize="Small" />
-    </StackLayout>
-        </ScrollView>
-</ContentPage>
+<TabbedPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="HonoursProject.Views.ItemDetailPage">
+  
+    <ContentPage Title="Details" IconImageSource="baseline_home_black_36pt_1x.png">
+        <ContentPage.Content>
+            <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Image Source="{Binding Property.image_url}"/>
+                <Label Text="Address:" FontSize="Medium" />
+                <Label Text="{Binding Property.displayable_address}" d:Text="Address" FontSize="Small" />
+                <Label Text="Town:" FontSize="Medium" />
+                <Label Text="{Binding Property.post_town}" d:Text="Town" FontSize="Small" />
+                <Label Text="Price:" FontSize="Medium" />
+                <Label Text="{Binding Property.price, StringFormat='{0:c0}'}" d:Text="Price" FontSize="Small" />
+                <Label Text="Details:" FontSize="Medium" />
+                <Label Text="{Binding Property.description}" d:Text="Description" FontSize="Small" />
+            </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+
+</TabbedPage>

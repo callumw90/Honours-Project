@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 using HonoursProject.Models;
@@ -10,13 +11,16 @@ namespace HonoursProject.Views
 {
 
     [DesignTimeVisible(false)]
-    public partial class ItemDetailPage : ContentPage
+    public partial class ItemDetailPage : TabbedPage
     {
         ItemDetailViewModel viewModel;
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
+
+            var mapView = new MapView(viewModel);
+            this.Children.Add(mapView);
 
             BindingContext = this.viewModel = viewModel;
         }
@@ -25,10 +29,10 @@ namespace HonoursProject.Views
         {
             InitializeComponent();
 
-            var item = new Cocktails
+            var item = new Listing
             {
-                Name = "Item 1",
-                Preparation = "This is an item description."
+                displayable_address = "Item 1",
+                details_url = "This is an item description."
             };
 
             viewModel = new ItemDetailViewModel(item);

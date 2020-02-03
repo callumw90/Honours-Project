@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Microsoft.AppCenter.Analytics;
@@ -27,13 +28,14 @@ namespace HonoursProject.Views
         public MainPage()
         {
             InitializeComponent();
+            
 
             BindingContext = viewModel = new ListViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Cocktails; // get selected item
+            var item = args.SelectedItem as Listing; // get selected item
 
             if (item == null)
                 return;
@@ -41,7 +43,7 @@ namespace HonoursProject.Views
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
 
-            CocktailListView.SelectedItem = null;
+            ListingListView.SelectedItem = null;
         }
 
         protected override void OnAppearing()

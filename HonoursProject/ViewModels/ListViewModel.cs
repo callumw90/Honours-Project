@@ -13,13 +13,14 @@ namespace HonoursProject.ViewModels
 {
     public class ListViewModel : BaseViewModel
     {
-        public ObservableCollection<Cocktails> Items { get; set; }
+        public ObservableCollection<Listing> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ListViewModel()
         {
-            Title = "Cocktail List";
-            Items = new ObservableCollection<Cocktails>();
+            Title = "Property List";
+            Items = new ObservableCollection<Listing>();
+
             LoadItemsCommand = new Command(async () => ExecuteLoadItemsCommand());
 
         }
@@ -34,9 +35,10 @@ namespace HonoursProject.ViewModels
             try
             {
                 Items.Clear();
-                var items = GetData.Deserialize();
 
-                foreach (Cocktails item in items)
+               var items = GetData.Deserialize();
+
+               foreach (Listing item in items)
                 {
                     Items.Add(item);
                 }

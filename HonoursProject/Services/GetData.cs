@@ -4,23 +4,26 @@ using Newtonsoft.Json;
 using HonoursProject.Models;
 using System.Collections.Generic;
 using Microsoft.AppCenter.Analytics;
+using System.Data;
 
 namespace HonoursProject.Services
 {
     public class GetData
     {
-        public static List<Cocktails> Deserialize()
+        public static List<Listing> Deserialize()
         {
-            string url = "https://raw.githubusercontent.com/teijo/iba-cocktails/master/recipes.json"; //json source
+            string url = "https://api.zoopla.co.uk/api/v1/property_listings.json?postcode=ky11&listing_status=sale&page_size=50&api_key=bmm77zppverakbnfnmtyuky3"; //json source
 
             var client = new WebClient();
             var content = client.DownloadString(url); //connect to web service and retrieve json
 
-            var cocktailJson = JsonConvert.DeserializeObject <List<Cocktails>>(content); //convert json to object
+            PropertyResult result = JsonConvert.DeserializeObject<PropertyResult>(content);
+
+            var listingResult = result.listing;
 
             Analytics.TrackEvent("Loading JSON");
 
-            return cocktailJson;
+            return listingResult;
         }
     }
 }
