@@ -55,19 +55,5 @@ namespace HonoursProject.Views
                 viewModel.LoadItemsCommand.Execute(null);
             }
         }
-
-        protected void UsageDataClicked(object sender, EventArgs args)
-        {
-
-            var totalMem = GCCollectClass.GetMemUsage();
-
-            totalMem /= 1024;
-
-            //totalMem.ToString();
-
-            DisplayAlert("Total Memory in Use","Memory: " + totalMem + " MB","OK");
-            Analytics.TrackEvent("Memory Usage: ");
-        }
-
     }
 }

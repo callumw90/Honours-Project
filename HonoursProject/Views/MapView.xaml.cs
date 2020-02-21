@@ -18,6 +18,8 @@ namespace HonoursProject.Views
 
             Map map = new Map(MapSpan.FromCenterAndRadius(new Position(viewModel.Property.latitude, viewModel.Property.longitude), Distance.FromMiles(1)));
 
+            map.IsShowingUser = true;
+
             var pin = new Pin()
             {
                 Position = new Position(viewModel.Property.latitude, viewModel.Property.longitude),

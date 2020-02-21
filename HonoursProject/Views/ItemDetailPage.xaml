@@ -1,22 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TabbedPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="HonoursProject.Views.ItemDetailPage">
+<TabbedPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel" mc:Ignorable="d" x:Class="HonoursProject.Views.ItemDetailPage">
   
     <ContentPage Title="Details" IconImageSource="baseline_home_black_36pt_1x.png">
         <ContentPage.Content>
-            <ScrollView>
+            <ScrollView Orientation="Vertical" Grid.Row="1" Grid.Column="0" VerticalOptions="FillAndExpand">
             <StackLayout Spacing="20" Padding="15">
-                <Image Source="{Binding Property.image_url}"/>
+                <Image WidthRequest="354" HeightRequest="255" Source="{Binding Property.image_url}"/>
                 <Label Text="Address:" FontSize="Medium" />
                 <Label Text="{Binding Property.displayable_address}" d:Text="Address" FontSize="Small" />
                 <Label Text="Town:" FontSize="Medium" />
                 <Label Text="{Binding Property.post_town}" d:Text="Town" FontSize="Small" />
                 <Label Text="Price:" FontSize="Medium" />
                 <Label Text="{Binding Property.price, StringFormat='{0:c0}'}" d:Text="Price" FontSize="Small" />
-                <Label Text="Details:" FontSize="Medium" />
-                <Label Text="{Binding Property.description}" d:Text="Description" FontSize="Small" />
+                <Label Text="Details:" FontSize="Medium"/>
+                <!--<Label Text="{Binding Property.description}" FontSize="Small"/>
+                 <WebView IsEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <WebView.Source>
+                        <HtmlWebViewSource x:Name="webView"/>
+                    </WebView.Source>
+                </WebView> -->
+                <controls:HtmlLabel BackgroundColor="Transparent" Text="{Binding Property.description}"/>
             </StackLayout>
             </ScrollView>
         </ContentPage.Content>
     </ContentPage>
 
 </TabbedPage>
+
+

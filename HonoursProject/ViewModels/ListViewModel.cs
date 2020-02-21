@@ -36,7 +36,7 @@ namespace HonoursProject.ViewModels
             {
                 Items.Clear();
 
-               var items = GetData.Deserialize();
+               var items = await GetData.Deserialize();
 
                foreach (Listing item in items)
                 {

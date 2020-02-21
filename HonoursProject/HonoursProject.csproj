@@ -11,14 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991537" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.4.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Push" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Data" Version="2.6.4" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Xamarin.Forms.Maps" Version="4.4.0.991537" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.4.0.991640" />
+    <PackageReference Include="Forms9Patch" Version="1.8.0" />
+    <PackageReference Include="Xam.Plugin.HtmlLabel" Version="3.0.2.2" />
+    <PackageReference Include="XamForms.HtmlLabel" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -32,8 +35,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Cocktails.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\cocktails.json" />
   </ItemGroup>
 </Project>

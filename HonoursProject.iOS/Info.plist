@@ -32,6 +32,10 @@
 	<string>HonoursProject</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your Location is Required to Search API</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your Location is Required to Search API</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -48,7 +52,5 @@
 		<string>MKDirectionsModeCar</string>
 		<string>MKDirectionsModePedestrian</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your Location is Required to Show Route to Home</string>
 </dict>
 </plist>

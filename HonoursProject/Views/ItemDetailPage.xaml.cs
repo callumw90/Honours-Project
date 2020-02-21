@@ -19,7 +19,14 @@ namespace HonoursProject.Views
         {
             InitializeComponent();
 
+
+            //var stringHTML = "<meta name=\"viewport\" content=\"initial-scale=1.0\" />" + viewModel.Property.short_description;
+
+            //webView.Html = stringHTML;
+
             var mapView = new MapView(viewModel);
+            var floorPlan = new FloorPlan(viewModel);
+            this.Children.Add(floorPlan);
             this.Children.Add(mapView);
 
             BindingContext = this.viewModel = viewModel;
