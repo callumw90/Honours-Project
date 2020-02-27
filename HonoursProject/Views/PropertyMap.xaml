@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="Map" IconImageSource="baseline_satellite_black_18dp.png" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HonoursProject.Views.PropertyMap">
+    <ContentPage.Content>
+        <StackLayout>
+            <maps:Map WidthRequest="320" HeightRequest="200"
+                    x:Name="PropMap"
+                      IsShowingUser="True"
+                      MapType="Hybrid">
+                </maps:Map>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

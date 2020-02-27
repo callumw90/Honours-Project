@@ -13,12 +13,6 @@
                 <Label Text="Price:" FontSize="Medium" />
                 <Label Text="{Binding Property.price, StringFormat='{0:c0}'}" d:Text="Price" FontSize="Small" />
                 <Label Text="Details:" FontSize="Medium"/>
-                <!--<Label Text="{Binding Property.description}" FontSize="Small"/>
-                 <WebView IsEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <WebView.Source>
-                        <HtmlWebViewSource x:Name="webView"/>
-                    </WebView.Source>
-                </WebView> -->
                 <controls:HtmlLabel BackgroundColor="Transparent" Text="{Binding Property.description}"/>
             </StackLayout>
             </ScrollView>

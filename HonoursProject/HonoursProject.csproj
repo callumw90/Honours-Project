@@ -21,6 +21,7 @@
     <PackageReference Include="Xamarin.Forms.Maps" Version="4.4.0.991640" />
     <PackageReference Include="Xam.Plugin.HtmlLabel" Version="3.0.2.2" />
     <PackageReference Include="XamForms.HtmlLabel" Version="1.0.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -34,5 +35,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Cocktails.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\10.1.3.7\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v8.1\Mono.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

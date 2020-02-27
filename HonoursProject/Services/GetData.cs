@@ -4,7 +4,6 @@ using System.Net;
 using Newtonsoft.Json;
 using HonoursProject.Models;
 using System.Collections.Generic;
-using Microsoft.AppCenter.Analytics;
 using System.Threading.Tasks;
 
 namespace HonoursProject.Services
@@ -16,7 +15,7 @@ namespace HonoursProject.Services
 
             var location = await GetLocation();
 
-            Console.WriteLine(location);
+            //Console.WriteLine(location);
 
             string url = "https://api.zoopla.co.uk/api/v1/property_listings.json?latitude=" + location.Latitude + "&longitude=" + location.Longitude + "&radius=10&order_by=age&listing_status=sale&page_size=50&description_style=1&api_key=bmm77zppverakbnfnmtyuky3"; //json source
 

@@ -20,7 +20,7 @@ namespace HonoursProject.Views
 {
 
     [DesignTimeVisible(false)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
 
         ListViewModel viewModel;
@@ -28,9 +28,12 @@ namespace HonoursProject.Views
         public MainPage()
         {
             InitializeComponent();
-            
 
             BindingContext = viewModel = new ListViewModel();
+
+            var propertyMap = new PropertyMap(viewModel);
+
+            Children.Add(propertyMap);
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
