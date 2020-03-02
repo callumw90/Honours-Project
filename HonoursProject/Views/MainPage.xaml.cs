@@ -58,5 +58,14 @@ namespace HonoursProject.Views
                 viewModel.LoadItemsCommand.Execute(null);
             }
         }
+
+         void Sort_list(System.Object sender, System.EventArgs e)
+        {
+            Console.WriteLine("Sorting List");
+
+            int length = viewModel.Items.Count;
+
+            viewModel.Sort(viewModel.Items, 0, length - 1);
+        }
     }
 }

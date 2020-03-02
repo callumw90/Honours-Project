@@ -2,6 +2,7 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="HonoursProject.Views.MainPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
     <ContentPage Title="List" IconImageSource="baseline_view_list_black_18dp.png">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Order by Price" Clicked="Sort_list" />
     </ContentPage.ToolbarItems>
     <StackLayout Padding="10,15,10,10">
         <ListView x:Name="ListingListView" BackgroundColor="Transparent" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
