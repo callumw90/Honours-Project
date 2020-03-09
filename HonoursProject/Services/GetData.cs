@@ -17,7 +17,7 @@ namespace HonoursProject.Services
 
             //Console.WriteLine(location);
 
-            string url = "https://api.zoopla.co.uk/api/v1/property_listings.json?latitude=" + location.Latitude + "&longitude=" + location.Longitude + "&radius=10&order_by=age&listing_status=sale&page_size=50&description_style=1&api_key=bmm77zppverakbnfnmtyuky3"; //json source
+            string url = "https://api.zoopla.co.uk/api/v1/property_listings.json?latitude=" + location.Latitude + "&longitude=" + location.Longitude + "&radius=10&order_by=age&listing_status=sale&page_size=50&description_style=1&api_key=INSERT_API_HERE"; //json source
 
             var client = new WebClient();
             var content = client.DownloadString(url); //connect to web service and retrieve json
